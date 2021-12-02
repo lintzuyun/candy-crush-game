@@ -85,6 +85,34 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Check for matches
+  // Check for row of Four
+  function checkRowForFour() {
+    for (i = 0; i < 60; i++) {
+      let rowOfFour = [i, i + 1, i + 2, i + 3];
+      let decidedColor = squares[i].style.backgroundColor;
+      const isBlank = squares[i].style.backgroundColor === "";
+
+      const notValid = [
+        5, 6, 7, 13, 14, 15, 21, 22, 23, 29, 30, 31, 37, 38, 39, 45, 46, 47, 53,
+        54, 55,
+      ];
+      if (notValid.includes(i)) continue;
+
+      if (
+        rowOfFour.every(
+          (index) =>
+            squares[index].style.backgroundColor === decidedColor && !isBlank
+        )
+      ) {
+        score += 4;
+        rowOfFour.forEach((index) => {
+          squares[index].style.backgroundColor = "";
+        });
+      }
+    }
+  }
+  checkRowForFour();
+
   // Check for row of Three
   function checkRowForThree() {
     for (i = 0; i < 61; i++) {
@@ -110,6 +138,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   checkRowForThree();
 
+  // Check for column of Four
+  function checkColumnForFour() {
+    // i <47 because the bottom 2 rows are not are valid for columns of 3
+    for (i = 0; i < 47; i++) {
+      let columOfFour = [i, i + width, i + width * 2, i + width * 3];
+      let decidedColor = squares[i].style.backgroundColor;
+      const isBlank = squares[i].style.backgroundColor === "";
+      if (
+        columOfFour.every(
+          (index) =>
+            squares[index].style.backgroundColor === decidedColor && !isBlank
+        )
+      ) {
+        score += 4;
+        columOfFour.forEach((index) => {
+          squares[index].style.backgroundColor = "";
+        });
+      }
+    }
+  }
+  checkColumnForFour();
+
   // Check for column of Three
   function checkColumnForThree() {
     // i <47 because the bottom 2 rows are not are valid for columns of 3
@@ -134,6 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // The setInterval() method will continue calling the function until clearInterval() is called, or the window is closed.
   window.setInterval(function () {
+    // check 4 before 3 because we want to get rid of the big ones first
+    checkRowForFour();
+    checkColumnForFour();
     checkRowForThree();
     checkColumnForThree();
   }, 100);
