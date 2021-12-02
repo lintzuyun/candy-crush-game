@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let score = 0;
 
   const candyColors = [
-    "url(images/blue-candy.png)",
-    "url(images/cookies.png)",
+    "url(images/christmas-ball.png)",
+    "url(images/bread.png)",
     "url(images/green-candy.png)",
-    "url(images/purple-candy.png)",
-    "url(images/rainbow-candy.png)",
-    "url(images/red-candy.png)",
+    "url(images/christmas-tree.png)",
+    "url(images/christmas-star.png)",
+    "url(images/house.png)",
   ];
 
   // Create Board w/ random color squares
