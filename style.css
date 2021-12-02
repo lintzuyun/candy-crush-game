@@ -1,3 +1,9 @@
+h3,
+h1 {
+  font-family: "Nunito", sans-serif;
+  text-transform: uppercase;
+}
+
 .grid {
   height: 560px;
   width: 560px;
@@ -8,4 +14,21 @@
 .grid div {
   height: 70px;
   width: 70px;
+}
+body {
+  display: flex;
+}
+
+.score-board {
+  background-color: green;
+  padding: 50px;
+  margin: 50px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  color: white;
 }
