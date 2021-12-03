@@ -24,18 +24,19 @@ h1 {
 }
 body {
   background-image: url(images/snow-background.png);
+  min-width: 560vh;
   display: flex;
 }
 
 .score-board {
-  background-color: green;
+  background-color: darkgreen;
   height: 100px;
   width: 100px;
   text-align: justify;
   background-size: auto;
   opacity: 0.7;
-  padding: 50px;
-  margin: 50px;
+  padding: 10px 50px 50px 50px;
+  margin: 250px 20px 20px 200px;
   border-radius: 10px;
 
   display: flex;

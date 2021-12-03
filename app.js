@@ -1,3 +1,7 @@
+/* WIP 
+bug to be fixed - constantly moving squares down before drag is finished on the current square.
+*/
+
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".grid");
   const scoreDisplay = document.getElementById("score");
@@ -82,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
       squareIdBeingDragged + width,
     ];
     let validMove = validMoves.includes(squareIdBeingReplaced);
+
     if (squareIdBeingReplaced && validMove) {
       squareIdBeingReplaced = null;
     } else if (squareIdBeingReplaced && !validMove) {
@@ -211,8 +216,8 @@ document.addEventListener("DOMContentLoaded", () => {
   checkColumnForThree();
 
   // The setInterval() method will continue calling the function until clearInterval() is called, or the window is closed.
+  // check 4 before 3 because we want to get rid of the big ones first
   window.setInterval(function () {
-    // check 4 before 3 because we want to get rid of the big ones first
     checkRowForFour();
     checkColumnForFour();
     checkRowForThree();
